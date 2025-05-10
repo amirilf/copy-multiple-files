@@ -1,55 +1,73 @@
 {
-    "name": "copy-multiple-files",
-    "displayName": "Copy Multiple Files",
-    "description": "This extension helps to select multiple files in your codebase and copy their contents together with a separator.",
-    "version": "0.0.1",
-    "publisher": "amirilf",
-    "engines": {
-        "vscode": "^1.75.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "main": "./out/extension.js",
-    "icon": "icon.png",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/amirilf/copy-multiple-files.git"
-    },
-    "contributes": {
-        "commands": [
-            {
-                "command": "copy-multiple-files.helloWorld",
-                "title": "Copy Files With Separator"
-            }
-        ],
-        "menus": {
-            "explorer/context": [
-                {
-                    "command": "copy-multiple-files.helloWorld",
-                    "when": "resourceScheme == 'file'",
-                    "group": "navigation"
-                }
-            ]
+  "name": "copy-multiple-files",
+  "displayName": "Copy Multiple Files",
+  "description": "This extension helps to select multiple files in your codebase and copy their contents together with a separator.",
+  "version": "0.0.2",
+  "publisher": "amirilf",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amirilf/copy-multiple-files.git"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Copy Multiple Files",
+      "properties": {
+        "copy-multiple-files.separator": {
+          "type": "string",
+          "default": "\n\n\n------------\n\n\n",
+          "description": "It's the separator to use between file contents."
+        },
+        "copy-multiple-files.headerTemplate": {
+          "type": "string",
+          "default": "/* {relativePath} */\n",
+          "description": "The template for the header before each file's content."
         }
+      }
     },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "npx tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile && npm run lint",
-        "lint": "eslint src",
-        "test": "vscode-test"
-    },
-    "devDependencies": {
-        "@types/mocha": "^10.0.10",
-        "@types/node": "20.x",
-        "@types/vscode": "^1.75.0",
-        "@typescript-eslint/eslint-plugin": "^8.22.0",
-        "@typescript-eslint/parser": "^8.22.0",
-        "@vscode/test-cli": "^0.0.10",
-        "@vscode/test-electron": "^2.4.1",
-        "eslint": "^9.19.0",
-        "typescript": "^5.7.3"
+    "commands": [
+      {
+        "command": "copy-multiple-files.helloWorld",
+        "title": "Copy Files With Separator"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copy-multiple-files.helloWorld",
+          "when": "resourceScheme == 'file'",
+          "group": "navigation"
+        }
+      ]
     }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "npx tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/estree": "^1.0.7",
+    "@types/istanbul-lib-coverage": "^2.0.6",
+    "@types/json-schema": "^7.0.15",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.17.46",
+    "@types/vscode": "^1.100.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3"
+  }
 }
