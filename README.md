@@ -34,3 +34,8 @@ This extension contributes the following settings:
 ### 0.0.1
 
 -   Initial release
+
+### 0.0.2
+
+-   Added file names as headers above copied content
+-   Improved internal cleanup and `.vscodeignore` for smaller package
